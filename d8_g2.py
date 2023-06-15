@@ -50,37 +50,58 @@ class Usuario:
 
     def menu_1(self):
         while True:
-            print("1. Comentar en un artículo")
             if isinstance(self, Colaborador):
+                print("1. Comentar en un artículo")
                 print("2. Publicar un artículo")
-            print("3. Ver comentarios de un artículo")
-            print("4. Volver atrás")
-            opcion = input("Seleccione una opción: ")
-            if opcion == "1":
-                id_articulo = int(input("Ingrese el ID del artículo: "))
-                contenido = input("Ingrese el contenido del comentario: ")
-                articulo_encontrado = False
-                for articulo in articulos:
-                    if articulo.id == id_articulo:
-                        self.comentar(id_articulo, contenido)
-                        articulo_encontrado = True
-                        break
-                if not articulo_encontrado:
-                    print("Artículo no encontrado")
-            elif opcion == "2" and isinstance(self, Colaborador):
-                titulo = input("Ingrese el título del artículo: ")
-                resumen = input("Ingrese el resumen del artículo: ")
-                contenido = input("Ingrese el contenido del artículo: ")
-                fecha_publicacion = input("Ingrese la fecha de publicación del artículo: ")
-                imagen = input("Ingrese la imagen del artículo: ")
-                articulo = Articulo(len(articulos) + 1, self.id, titulo, resumen, contenido, fecha_publicacion, imagen, "publicado")
-                articulos.append(articulo)
-                print("Artículo publicado")
-            elif opcion == "3":
-                id_articulo = input("Ingrese el ID del artículo: ")
-                self.ver_comentarios(int(id_articulo))            
-            elif opcion == "4":
-                break
+                print("3. Ver comentarios de un artículo")
+                print("4. Volver atrás")
+                opcion = input("Seleccione una opción: ")
+                if opcion == "1":
+                    id_articulo = int(input("Ingrese el ID del artículo: "))
+                    contenido = input("Ingrese el contenido del comentario: ")
+                    articulo_encontrado = False
+                    for articulo in articulos:
+                        if articulo.id == id_articulo:
+                            self.comentar(id_articulo, contenido)
+                            articulo_encontrado = True
+                            break
+                    if not articulo_encontrado:
+                        print("Artículo no encontrado")
+                elif opcion == "2" and isinstance(self, Colaborador):
+                    titulo = input("Ingrese el título del artículo: ")
+                    resumen = input("Ingrese el resumen del artículo: ")
+                    contenido = input("Ingrese el contenido del artículo: ")
+                    fecha_publicacion = input("Ingrese la fecha de publicación del artículo: ")
+                    imagen = input("Ingrese la imagen del artículo: ")
+                    articulo = Articulo(len(articulos) + 1, self.id, titulo, resumen, contenido, fecha_publicacion, imagen, "publicado")
+                    articulos.append(articulo)
+                    print("Artículo publicado")
+                elif opcion == "3":
+                    id_articulo = input("Ingrese el ID del artículo: ")
+                    self.ver_comentarios(int(id_articulo))            
+                elif opcion == "4":
+                    break
+            else:
+                print("1. Comentar en un artículo")   
+                print("2. Ver comentarios de un artículo")
+                print("3. Volver atrás")
+                opcion = input("Seleccione una opción: ")
+                if opcion == "1":
+                    id_articulo = int(input("Ingrese el ID del artículo: "))
+                    contenido = input("Ingrese el contenido del comentario: ")
+                    articulo_encontrado = False
+                    for articulo in articulos:
+                        if articulo.id == id_articulo:
+                            self.comentar(id_articulo, contenido)
+                            articulo_encontrado = True
+                            break
+                    if not articulo_encontrado:
+                        print("Artículo no encontrado")
+                elif opcion == "2":
+                    id_articulo = input("Ingrese el ID del artículo: ")
+                    self.ver_comentarios(int(id_articulo))            
+                elif opcion == "3":
+                    break
 
 class Comentario:
     def __init__(self, id, id_articulo, id_usuario, contenido):
