@@ -126,43 +126,46 @@ class Colaborador(Usuario):
 
 def menu():
     print("Bienvenido!")
-    print("1. Iniciar sesión")
-    print("2. Registrarse")
-    print("3. Salir")
-    opcion = input("Seleccione una opción: ")
-    if opcion == "1":
-        username = input("Ingrese su nombre de usuario: ")
-        contrasena = input("Ingrese su contraseña: ")
-        for usuario in usuarios_registrados:
-            if usuario.username == username and usuario.contrasena == contrasena:
-                usuario.login(username, contrasena)
-                return
-        print("Nombre de usuario o contraseña incorrectos")
-    elif opcion == "2":
-        nombre = input("Ingrese su nombre: ")
-        apellido = input("Ingrese su apellido: ")
-        telefono = input("Ingrese su teléfono: ")
-        username = input("Ingrese su nombre de usuario: ")
-        email = input("Ingrese su email: ")
-        contrasena = input("Ingrese su contraseña: ")
-        fecha_registro = input("Ingrese su fecha de registro: ")
-        avatar = input("Ingrese su avatar: ")
-        estado = input("Ingrese su estado: ")
-        online = input("¿Está en línea? (s/n): ") == "s"
-        tipo_usuario = input("Ingrese su tipo de usuario (Colaborador/Público): ")
-        if tipo_usuario.lower() == "colaborador":
-            usuario = Colaborador(len(usuarios_registrados) + 1, nombre, apellido, telefono, username, email, contrasena, fecha_registro, avatar, estado, online, tipo_usuario)
+    continuar = True
+    while continuar:
+        print("1. Iniciar sesión")
+        print("2. Registrarse")
+        print("3. Salir")
+        opcion = input("Seleccione una opción: ")
+        if opcion == "1":
+            username = input("Ingrese su nombre de usuario: ")
+            contrasena = input("Ingrese su contraseña: ")
+            for usuario in usuarios_registrados:
+                if usuario.username == username and usuario.contrasena == contrasena:
+                    usuario.login(username, contrasena)
+                    return
+            print("Nombre de usuario o contraseña incorrectos")
+        elif opcion == "2":
+            nombre = input("Ingrese su nombre: ")
+            apellido = input("Ingrese su apellido: ")
+            telefono = input("Ingrese su teléfono: ")
+            username = input("Ingrese su nombre de usuario: ")
+            email = input("Ingrese su email: ")
+            contrasena = input("Ingrese su contraseña: ")
+            fecha_registro = input("Ingrese su fecha de registro: ")
+            avatar = input("Ingrese su avatar: ")
+            estado = input("Ingrese su estado: ")
+            online = input("¿Está en línea? (s/n): ") == "s"
+            tipo_usuario = input("Ingrese su tipo de usuario (Colaborador/Público): ")
+            if tipo_usuario.lower() == "colaborador":
+                usuario = Colaborador(len(usuarios_registrados) + 1, nombre, apellido, telefono, username, email, contrasena, fecha_registro, avatar, estado, online, tipo_usuario)
+            else:
+                usuario = Usuario(len(usuarios_registrados) + 1, nombre, apellido, telefono, username, email, contrasena, fecha_registro, avatar, estado, online, tipo_usuario)
+            usuario.registrar()
+            print("Registro exitoso")
+        elif opcion == "3":
+            print("Saliendo")
+            continuar = False
         else:
-            usuario = Usuario(len(usuarios_registrados) + 1, nombre, apellido, telefono, username, email, contrasena, fecha_registro, avatar, estado, online, tipo_usuario)
-        usuario.registrar()
-        print("Registro exitoso")
-    elif opcion == "3":
-        print("Saliendo")
-    else:
-        print("Opción inválida")
+            print("Opción inválida")
 
 
-while True:
+
     menu()
 
 
