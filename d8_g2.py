@@ -80,7 +80,7 @@ class Usuario:
                     id_articulo = input("Ingrese el ID del artículo: ")
                     self.ver_comentarios(int(id_articulo))            
                 elif opcion == "4":
-                    break
+                    return menu()
             else:
                 print("1. Comentar en un artículo")   
                 print("2. Ver comentarios de un artículo")
@@ -101,7 +101,7 @@ class Usuario:
                     id_articulo = input("Ingrese el ID del artículo: ")
                     self.ver_comentarios(int(id_articulo))            
                 elif opcion == "3":
-                    break
+                    return menu()
 
 class Comentario:
     def __init__(self, id, id_articulo, id_usuario, contenido):
