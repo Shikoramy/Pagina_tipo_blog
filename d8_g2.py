@@ -168,12 +168,11 @@ def menu():
 
 menu()
 
-
 #Integrantes:
-#Fernando Javier Svoboda
-# José A. Figueroa  
-# Malena Rodriguez
-# Hector Mosqueira
-# Carlos agustin lazarczuk
 # Andrea Kohn
-
+# Carlos agustin lazarczuk
+# Fernando Javier Svoboda
+# Gonzalo Fabian Casañas Sendra
+# Hector Mosqueira
+# José A. Figueroa 
+# Malena Gisel Rodriguez
