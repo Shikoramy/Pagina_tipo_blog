@@ -171,4 +171,9 @@ menu()
 
 #Integrantes:
 #Fernando Javier Svoboda
-# José A. Figueroa        
+# José A. Figueroa  
+# Malena Rodriguez
+# Hector Mosqueira
+# Carlos agustin lazarczuk
+# Andrea Kohn
+
